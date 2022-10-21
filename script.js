@@ -8,7 +8,7 @@ const x = setInterval(function () {
 
   // Find the distance between now and the count down date
   const distance = countDownDate - now;
-  
+
   // Time calculations for days, hours, minutes and seconds
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -34,3 +34,22 @@ const x = setInterval(function () {
     document.getElementById("countdown").innerHTML = "EXPIRED";
   }
 }, 1000);
+
+const openModalButton = document.querySelector('.open-modal');
+const modal = document.querySelector('.modal');
+
+function openModal() {
+  modal.classList.remove('invisible');
+};
+
+function closeModal(event) {
+  const modalHasClassInvisible = modal.classList.contains('invisible');
+
+  if (event.key === 'Escape' && !modalHasClassInvisible) {
+    modal.classList.add('invisible');
+  }
+};
+
+openModalButton.addEventListener("click", openModal);
+modal.addEventListener('click', closeModal);
+document.addEventListener('keydown', closeModal);
