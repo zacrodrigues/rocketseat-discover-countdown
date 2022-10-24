@@ -44,7 +44,7 @@
           </ul>
         </div>
         <p>Inscreva-se para saber mais sobre o lançamento</p>
-        <button class="open-modal" type="button">Inscreva-se</button>
+        <button id="open-modal" type="button" class="primary-button">Inscreva-se</button>
       </section>
       <img src="/assets/rocket.svg" alt="">
     </main>
@@ -52,7 +52,20 @@
   </div>
   <div class="modal invisible">
     <div class="modal-content">
-      Tecle ESC para fechar
+      <form>
+        <div class="input-form">
+          <label for="person-name">Nome Completo</label><br>
+          <input type="text" name="person-name" id="person-name" class="input">
+        </div>
+        <div class="input-form">
+          <label for="person-email">Seu melhor e-mail</label><br>
+          <input type="email" name="person-email" id="person-email" class="input">
+        </div>
+      </form>
+      <button type="submit" id="modal-button" class="primary-button">Confirmar Inscrição</button>
+      <button id="close-modal-button" type="button">
+        <img src="./assets/close.svg" alt="Fechar">
+      </button>
     </div>
   </div>
   <script src="script.js"></script>

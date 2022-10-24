@@ -35,8 +35,10 @@ const x = setInterval(function () {
   }
 }, 1000);
 
-const openModalButton = document.querySelector('.open-modal');
+const openModalButton = document.querySelector('#open-modal');
 const modal = document.querySelector('.modal');
+const modalButton = document.querySelector('#modal-button');
+const closeModalButton = document.querySelector('#close-modal-button');
 
 function openModal() {
   modal.classList.remove('invisible');
@@ -44,12 +46,18 @@ function openModal() {
 
 function closeModal(event) {
   const modalHasClassInvisible = modal.classList.contains('invisible');
+  console.log(event)
 
-  if (event.key === 'Escape' && !modalHasClassInvisible) {
+  if (
+    event.key === 'Escape' ||
+    event.type === 'click' &&
+    !modalHasClassInvisible
+  ) {
     modal.classList.add('invisible');
   }
 };
 
 openModalButton.addEventListener("click", openModal);
-modal.addEventListener('click', closeModal);
+modalButton.addEventListener("click", closeModal);
+closeModalButton.addEventListener("click", closeModal);
 document.addEventListener('keydown', closeModal);
